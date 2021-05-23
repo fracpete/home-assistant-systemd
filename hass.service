@@ -1,0 +1,17 @@
+[Unit]
+Description=home-assistant.io service
+After=syslog.target network.target
+
+[Service]
+Environment="PATH=/usr/local/bin:/usr/bin
+Type=oneshot
+User=homeassistant
+Group=homeassistant
+ExecStart=/usr/local/bin/hass.sh start
+ExecStop=/usr/local/bin/hass.sh stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
